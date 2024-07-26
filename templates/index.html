@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with Bot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            background-color: #f5f5f5;
+        }
+       
+        #chat-box {
+            margin-top: 40px;
+            margin-left: 530px;
+            font-size: 16px;
+        }
+
+        #chat-content {
+            display: block;
+            width: 900px;
+            height: 780px;
+            background-color: transparent;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            border-radius: 0px;
+            margin-bottom: 60px;
+        }
+
+        #menu {
+            width: 250px; /* Largura do menu lateral */
+            height: 100vh; /* Altura completa da tela */
+            background-color: #124f9f; /* Cor azul do menu */
+            position: fixed; /* Fixa o menu na lateral */
+            top: 0;
+            left: 0;
+            color: white;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); /* Sombra para efeito de profundidade */
+        }
+
+        #menu h2 {
+            margin-top: 0;
+            color: white;
+            display: block;
+            padding: 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #menu ul {
+            margin-top: 230px;
+            list-style: none;
+            padding: 10px;
+        }
+
+        #menu ul li {
+            margin: 10px 0;
+        }
+
+        #menu ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 20px;
+            display: block;
+            padding: 30px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #menu ul li a:hover {
+            background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+        }
+
+        #chat-messages {
+            height: 500px;
+            overflow-y: auto;
+            padding: 50px;
+        }
+
+        #chat-input {
+            display: flex;
+        }
+
+        #chat-input input {
+            flex: 1;
+            padding: 20px;
+            margin-top: 100px;
+            border: none;
+            outline: none;
+        }
+
+        #chat-input button {
+            background-color: #007bff;
+            color: white;
+            margin-top: 100px;
+            height: 55px;
+            padding: 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .message {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 10px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .message.user {
+            background-color: #efefef;
+            color: black;
+            align-self: flex-end;
+        }
+
+        .message.bot {
+            background-color: #007bff;
+            color: white;
+            align-self: flex-start;
+        }
+
+        .message img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        #helix-ai-symbol {
+            display: flex;
+            margin-left: 20px;
+            margin-top: 400px; /* Ajusta a distância do topo */
+        }
+
+        #my_image {
+            width: 200px; /* Reduzido de 200px para 150px */
+            height: 60px; /* Reduzido de 65px para 50px */
+            background-image: url('static/image1.png'); /* Caminho para a imagem */
+            background-size: cover;
+            background-position: center; /* Centraliza a imagem */
+            display: block; /* Faz com que o link ocupe o bloco */
+            border: none; /* Remove a borda, se houver */
+            cursor: pointer; /* Aplica cursor de mão ao passar o mouse */
+        }
+
+        #logo {
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: flex-start; /* Alinha no início do contêiner */
+            margin-top: 10px; /* Ocupa 100% da altura da janela */
+        }
+
+        #my_imagesec {
+            margin-top: -470px; /* Ajusta a distância do topo */
+            width: 200px;
+            height: 200px;
+            margin-left: 20px;
+            background-image: url('static/image2.png'); /* Caminho para a imagem */
+            background-size: cover;
+            background-position: center; /* Centraliza a imagem */
+            display: block; /* Faz com que o link ocupe o bloco */
+        }
+
+        #github {
+            display: flex;
+            margin-left: 30px;
+            margin-top: 40px; /* Ajusta a distância do topo */
+        }
+
+        #github_symbol {
+            width: 50px; /* Reduzido de 200px para 150px */
+            height: 50px; /* Reduzido de 65px para 50px */
+            background-image: url('static/image3.png'); /* Caminho para a imagem */
+            background-size: cover;
+            background-position: center; /* Centraliza a imagem */
+            display: block; /* Faz com que o link ocupe o bloco */
+            border: none; /* Remove a borda, se houver */
+            cursor: pointer; /* Aplica cursor de mão ao passar o mouse */
+        }
+
+        #linkedin {
+            display: flex;
+            margin-left: 150px;
+            margin-top: -42px; /* Ajusta a distância do topo */
+        }
+
+        #linkedin_symbol {
+            width: 35px; /* Reduzido de 200px para 150px */
+            height: 35px; /* Reduzido de 65px para 50px */
+            background-image: url('static/image4.png'); /* Caminho para a imagem */
+            background-size: cover;
+            background-position: center; /* Centraliza a imagem */
+            display: block; /* Faz com que o link ocupe o bloco */
+            border: none; /* Remove a borda, se houver */
+            cursor: pointer; /* Aplica cursor de mão ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+<div id="menu">
+    <ul>
+        <li><a href="#"><i class="fas fa-cogs"></i> Documentação</a></li>
+        <li><a href="#"><i class="fas fa-user"></i> Sobre</a></li>
+    </ul>
+    <div id="my_imagesec"></div>
+    <div id="helix-ai-symbol">
+        <a href="https://github.com/Welpeth/neuralbot" target="_blank">
+            <div id="my_image"></div>
+        </a>
+    </div>
+    <div id="github">
+        <a href="https://github.com/Welpeth" target="_blank">
+            <div id="github_symbol"></div>
+        </a>
+    </div>
+    <div id="linkedin">
+        <a href="https://linkedin.com/in/henrique-josé-dias-pereira-9a821a273" target="_blank">
+            <div id="linkedin_symbol"></div>
+        </a>
+    </div>
+</div>
+<div id="chat-box">
+    <div id="chat-content">
+        <div id="chat-messages">
+            <div class="message bot">
+                <img src="static/helix-pic.png" alt="Bot">
+                <div class="message-content">Olá! Eu sou o Helix, criado por Henrique. Sou seu assistente virtual.</div>
+            </div>
+        </div>
+        <div id="chat-input">
+            <input type="text" id="user-input" placeholder="Digite sua mensagem aqui...">
+            <button id="send-button">Enviar</button>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('#send-button').click(function () {
+            sendMessage();
+        });
+
+        $('#user-input').keypress(function(e) {
+            if (e.which == 13) {
+                sendMessage();
+            }
+        });
+
+        function sendMessage() {
+            var message = $('#user-input').val().trim();
+            if (message != '') {
+                $('#chat-messages').append('<div class="message user"><div class="message-content">' + escapeHtml(message) + '</div></div>');
+                $('#user-input').val('');
+
+                $.ajax({
+                    url: '/handle_message',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({message: message}),
+                    success: function (data) {
+                        $('#chat-messages').append('<div class="message bot"><img src="static/helix-pic.png" alt="Bot"><div class="message-content">' + escapeHtml(data.response) + '</div></div>');
+                        $('#chat-messages').scrollTop($('#chat-messages')[0].scrollHeight);
+                    }
+                });
+            }
+        }
+
+        function escapeHtml(text) {
+            return text
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;')
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#039;');
+        }
+    });
+</script>
+</body>
+</html>

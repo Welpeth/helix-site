@@ -1,0 +1,87 @@
+{
+    "intents": [
+        {
+            "tag": "greeting",
+            "patterns": ["Ola", "Tem alguém aí?", "Bom dia", "Oi", "Boa tarde"],
+            "responses": ["Olá, como posso ajudar?", "Oi", "O que posso fazer por voce?"]
+        },
+        {
+            "tag": "goodbye",
+            "patterns": ["Tchau", "Adeus", "Estou indo embora", "até mais tarde", "até logo"],
+            "responses": ["Adeus, humano", "De nada", "Adeus!"]
+        },
+        {
+            "tag": "how",
+            "patterns": ["Como foi seu dia?", "Como você se sente", "Como você esta?"],
+            "responses": ["Estou bem, obrigado por perguntar", "Estou bem, como sou uma máquina, não tenho sentimentos ou preferências pessoais, mas obrigado por perguntar"]
+        },
+        {
+            "tag": "not_understood",
+            "patterns": ["", "", ""],
+            "responses": ["Desculpe, não entendi a sua pergunta. Você poderia reformular ou fornecer mais detalhes?"]
+        },
+        {
+            "tag": "support",
+            "patterns": ["Preciso de ajuda", "Como posso resolver um problema?", "Você pode me ajudar?", "Estou com dificuldades", "Preciso da sua ajuda"],
+            "responses": ["Claro, estou aqui para ajudar. Por favor, descreva o problema.", "Posso tentar ajudar. Qual é o problema?", "Farei o meu melhor para ajudar. O que você precisa?"]
+        },
+        {
+            "tag": "name",
+            "patterns": ["Qual é o seu nome?", "Seu nome?", "Como você se chama?", "Qual nome você tem?"],
+            "responses": ["Meu nome é Helix", "Sou chamado de Helix", "Sou Helix, prazer"]
+        },
+        {
+            "tag": "info-redes",
+            "patterns": [
+                "Preciso de ajuda com redes",
+                "Tenho um problema com redes",
+                "Me ajude, estou com problema com as redes",
+                "Estou com dificuldades em redes",
+                "Qual é o problema que você está enfrentando com redes?"
+            ],
+            "responses": [
+                "Pode detalhar um pouco mais o seu problema com redes? É relacionado à conexão ou a problemas com a pasta?"
+            ]
+        },
+        {
+            "tag": "info-redes-conexao",
+            "patterns": [
+                "É um problema de conexão",
+                "Estou enfrentando um problema de conexão",
+                "O problema é com a conexão",
+                "A conexão está falhando",
+                "Não consigo me conectar à rede"
+            ],
+            "responses": [
+                "Caso o cliente esteja com problemas de conexão, como o Blockbit por exemplo, você deve fazer um caminho alternativo no navegador dessa pessoa para que se possa botar o login (PMT) que liberará acesso à rede novamente, simples assim.",
+                "Se o problema for com a conexão e você estiver usando o Blockbit, tente acessar o login (PMT) via um caminho alternativo no navegador. O Blockbit é um firewall que controla o tráfego de dados e pode estar bloqueando sua conexão por questões de segurança. Verifique se o Blockbit está configurado corretamente para evitar bloqueios indevidos.",
+                "Em casos de problemas de conexão, como quando o Blockbit está ativo, você pode usar um caminho alternativo no navegador para inserir o login (PMT) e liberar o acesso à rede. Lembre-se de que o Blockbit é um firewall que filtra dados, então pode ser necessário ajustar as configurações para garantir que a conexão não seja bloqueada."
+            ]
+        },
+        {   
+            "tag": "info-redes-conexao-adaptadores",
+            "patterns": [
+                "A rede não está sendo reconhecida",
+                "Não aparece nenhum icone de conexão de rede",
+                "A rede do computador não é reconhecida",
+                "O computador está sem rede"
+            ],
+            "responses": [
+                "Algumas vezes o cliente pode acabar ficando impaciente com a demora do reconhecimento de rede do computador, ainda que seja a cabo, às vezes esse problema acontece, e existem diversos fatores que podem influenciar isso. De qualquer modo, caso o cliente tenha redefinido o adaptador de Ethernet pela solução de problemas do Windows, isso é um grande problema… Mas relaxe, tudo pode ser resolvido. \n\n Primeiramente, acesse o painel de controle, vá em redes e, logo depois, central de redes e compartilhamento; em seguida, clique no Ethernet, propriedades, protocolo IP (TCP/IPV4).\n\n No caso é necessario soubermos o IP da máquina que estamos configurando novamente."
+            ]
+        },
+        {
+            "tag": "info-redes-pastas",
+            "patterns": [
+                "É um problema de pastas",
+                "Estou enfrentando problemas com as pastas",
+                "As pastas estão falhando",
+                "Não consigo explorar uma pasta do servidor",
+                "É um problema com a pasta do servidor"
+            ],
+            "responses": [
+                "Caso o cliente esteja enfrentando problemas de acesso a pasta do servidor a pasta F, temos que sempre providenciar o caminho a essa pasta pois ela contém todas as informações e ferramentas interessantes que fará nossas vidas muito mais fáceis.\n\nRaramente esse problema vem à tona, mas caso aconteça, você tem que\n\nIr no Explorador de arquivos, Este Computador, clique com o botão direito, Adicionar local da rede, em seguida adicionar o caminho e mudar o nome para F:\n\n\\\\SRV-FS-01\\fs$\\PMT\n\nCaso seja uma pasta específica, substitua “arquivo” pelo nome do arquivo que você precisa:\n\n\\\\SRV-FS-01\\fs$\\arquivo"
+            ]
+        }
+    ]
+}
