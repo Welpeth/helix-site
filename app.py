@@ -3,12 +3,19 @@ import os
 
 from utils import get_response, predict_class
 
-app = Flask(__name__, template_folder='templates')
-app = Flask(__name__, static_folder='static')
+app = Flask(__name__, template_folder='templates', static_folder='static')
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
+@app.route('/sobre')
+def sobre():
+    return render_template('sobre.html')
+
+@app.route('/documentacao')
+def documentacao():
+    return render_template('documentacao.html')
 
 @app.route('/handle_message', methods=['POST'])
 def handle_message():
@@ -22,7 +29,6 @@ def handle_message():
     response = get_response(message)
     return jsonify({'response': response})
 
-port = int(os.environ.get('PORT', 5000))
-
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', debug = True, port = port)
+    port = int(os.environ.get('PORT', 5000))
+    app.run(host='0.0.0.0', debug=True, port=port)
